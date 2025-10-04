@@ -55,8 +55,10 @@ app.use("/api/:rid/orders", orderRoutes);
 app.use("/api/:rid/tables", tableRoutes);
 app.use("/api/:rid/bills", billRoutes);
 app.use("/api/:rid/calls", callRoutes);
+// Mount admin routes under both /admin and base path
 app.use("/api/:rid/admin", adminRoutes);
 app.use("/api/user",require("./routes/user.route"))
+app.use("/api/:rid", adminRoutes);
 
 // ------------------ 404 handler ------------------
 app.use((req, res) => {
